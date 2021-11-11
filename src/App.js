@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useState } from "react";
+import FetchContacts from "./components/FetchContacts";
+import Navbar from "./components/Navbar";
+import Modal from "./components/Modal";
+import NewContact from "./components/NewContact";
 function App() {
+  const [showModal, setshowModal] = useState(false);
+
+  const closeModal = () => {
+    setshowModal(false);
+  };
+  const openModal = () => {
+    setshowModal(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar openModal={openModal} />
+      <FetchContacts />
+      {showModal && (
+        <Modal>
+          <NewContact onClick={closeModal} />
+        </Modal>
+      )}
     </div>
   );
 }

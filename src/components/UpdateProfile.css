@@ -1,0 +1,15 @@
+.form-content {
+  margin: 4px 0;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+}
+.form-content label {
+  padding-left: 25%;
+}
+.btn-modal {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
